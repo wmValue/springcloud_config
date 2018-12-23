@@ -1,0 +1,37 @@
+﻿spring:
+  profiles:
+   active:
+   - dev
+---
+server: 
+  port: 8002 #注册中心占用7001端口，冒号后面要有空格
+spring:
+  profiles: dev #开发环境
+  application:
+    name: config_eureka_client8002
+eureka:
+  instance:                        #定义Eureka实例
+    hostname: spring8002.com   #Eureka实例所在的主机名
+  client:                             #eureka默认情况下,把自己当做客户端来注册自己,所以我们要禁用它
+    register-with-eureka: false  #表示是否将自己注册到Eureka Server上，默认为true
+    fetch-registry: false        #表示是否从Eureka Server上获取注册信息，默认为true
+    service-url:
+      # defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/       #设置与Eureka Server交互的地址查询服务和注册服务都需要依赖这个地址（单机）。
+      defaultZone: http://spring8001.com:8001/eureka/
+
+---
+server: 
+  port: 8002 #注册中心占用7001端口，冒号后面要有空格
+spring:
+  profiles: dev #开发环境
+  application:
+    name: config_eureka_client8002
+eureka:
+  instance:                        #定义Eureka实例
+    hostname: spring8002.com   #Eureka实例所在的主机名
+  client:                             #eureka默认情况下,把自己当做客户端来注册自己,所以我们要禁用它
+    register-with-eureka: false  #表示是否将自己注册到Eureka Server上，默认为true
+    fetch-registry: false        #表示是否从Eureka Server上获取注册信息，默认为true
+    service-url:
+      # defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/       #设置与Eureka Server交互的地址查询服务和注册服务都需要依赖这个地址（单机）。
+      defaultZone: http://spring8001.com:8001/eureka/
