@@ -28,9 +28,9 @@ spring:
 eureka:
   client: #客户端注册进eureka服务列表内
     service-url:
-      defaultZone: http://spring8001.com:8001/eureka
+      defaultZone: http://localhost:8001/eureka
   instance:
-    instance-id:  microservice-dept7001
+    instance-id: microservice-dept7001
     prefer-ip-address: true     #访问路径可以显示IP地址
 info:
   app.name: yaorange-microservicecloud
